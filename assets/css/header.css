@@ -1,0 +1,182 @@
+/**HEADER */
+.header{
+          width: 100%;
+          height: 80px;
+          color: #fff;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row;
+          padding: 0 10%;
+          background-color: transparent;
+          background-color: var(--primary-color);
+          z-index: 97;
+        }
+        /**LOGO */
+        .header_logo{
+          z-index: 98;
+          cursor: pointer;
+        }
+        
+        .header_logo > img{
+          height: 40px;
+          filter: invert();
+        }
+        /**MENU HAMBURGUER */
+        .ham{
+          list-style: none;
+          position: relative;
+          width: 35px;
+          height: 23px;
+          z-index: 98;
+        }
+        
+        .ham > li{
+          width: 35px;
+          height: 3px;
+          position: absolute;
+          left: 0;
+          background-color: #fff;
+        }
+        
+        .ham > li:nth-of-type(1){
+          top: 0;
+        }
+        
+        .ham > li:nth-of-type(2){
+          top: 10px;
+        }
+        
+        .ham > li:nth-of-type(3){
+          top: 20px;
+        }
+        /**DROPDOWN MENU */
+        .header_dropdown{
+          width: 100vw;
+          height: 100vh;
+          position: absolute;
+          top: 0;
+          left: -100vw;
+          background-color: var(--primary-color);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0 10%;
+          gap: 30px;
+          transition: left.4s ease;
+        }
+        
+        .header_dropdown.show{
+          left: 0;
+        }
+        
+        .header_menu{
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+        
+        .header_menu > li{
+          font-size: 15px;
+          text-transform: uppercase;
+          padding: 10px;
+          cursor: pointer;
+          overflow: hidden;
+        }
+        
+        .header_menu > li{
+          border-bottom: 1px solid #fff;
+        }
+        
+        .header_menu > li:nth-of-type(1){
+          border-top: 1px solid #fff;
+        }
+        
+        .header_cart{
+          width: 35px;
+          height: 35px;
+          padding: 8px;
+          background-color: #fff;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          cursor: pointer;
+        }
+        
+        .header_cart > img{
+          height: 17px;
+          filter: invert(48%) sepia(7%) saturate(959%) hue-rotate(44deg) brightness(93%) contrast(83%);
+          transition: filter-color .4s ease, transform .2s ease;
+        }
+        
+        .header_cart:hover{
+          background-color: var(--primary-color);
+          transition: background-color .4s ease;
+        }
+        
+        .header_cart:hover > img{
+          filter: invert();
+        }
+        
+        .header_cart:active > img{
+          transform: scale(.9);
+        }
+        
+        @media (min-width: 769px){
+          .header{
+            position: relative;
+          }
+          
+          .ham{
+            display: none;
+          }
+
+          .header_dropdown{
+            background-color: transparent;
+            height: 100%;
+            left: 0;
+            position: unset;
+            flex-direction: row;
+            padding: 0;
+          }
+
+          .header_menu{
+            width: fit-content;
+            flex-direction: row;
+            position: absolute;
+            margin: 0 auto;
+            gap: 10px;
+          }
+
+          .header_menu > li{
+            border: none;
+            border-bottom: none;
+            border-top: none !important;
+            position: relative;
+          }
+
+          .header_menu > li::before{
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background-color: #fff;
+            right: 0;
+            bottom: 0px;
+            transition: width .4s ease;
+          }
+
+          .header_menu > li:hover::before{
+            width: 100%;
+            left: 0;
+            right: auto;
+          }
+
+          .header_cart{
+            margin: 0 0 0 auto;
+          }
+        }
